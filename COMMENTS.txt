@@ -1,0 +1,50 @@
+A arquitetura do projeto foi apoiada centralmente com MVVMCross, existem dois fatores que motivou a 
+escolha do plugin. O primeiro é do meu conhecimento sobre a plataforma cruzada em plug-in, cujo, é 
+bem recomendada na documentação oficial do Xamarin. O segundo é que o MVVMCross precípua a economia 
+do tempo, sendo o tempo um ponto considerável nesse projeto.
+
+Recursos de Alto-nível e Plataforma Cruzada são 2 pontos positivos no MVVMCross. Os Recursos de Alto-nível são:
+
+	Padrão de arquitetura MVVM
+	Sistema de navegação
+	Ligação de dados
+	Suporte específico da plataforma
+	Inversão de controle e Injeção de Dependência
+	Muitos plugins para funcionalidades comuns
+	Auxiliares de teste de unidade
+	Completa flexibilidade - seu aplicativo é o Rei!
+
+Em um nível mais macro, a arquitetura do projeto contém:
+
+	Project PCL(MvxForms.Core)
+	Project Android(MvxForms.Droid)
+
+No projeto PCL é onde encontra-se as layers:
+
+	Persistência de Dados
+	Modelos de Objetos
+	Lógica de Negócios
+	Serviço de Acesso
+
+Já no projeto Android é onde se encontra as layers User Interface(UI) concomitantemente  
+as classes da aplicação.
+
+Portanto, o projeto Android é responsável por tratar as UI especificamente e o PCL cuida de todo o serviço
+que é executado por trás das telas.
+
+Para ajudar no desenvolvimento foram utilizados alguns plugins de terceiros, são eles:
+
+	Newtonsoft.Json (Utilizado para deserializar arquivos JSON)
+	Plugin.Geolocator (Usado para pegar a posição da latitude e longitude da cidade em questão)
+	Plugin.Permissions (Executa o tratamento de permissão de localização geográfica)
+	Plugin.Settings (Utilizado para persistir dados localmente)
+	Plugin.TextToSpeech (API de fala avançada, considerando os textos das variáveis "temp" e "condition")
+
+CONSIDERAÇÕES FINAIS
+
+Sobre as melhorias no código-fonte, caso eu tivesse um plus no tempo, melhoraria a ligação das UI com as ViewModel 
+e a navegação de telas utilizando injeção de dependências. Considerando que o projeto deveria ser feito em 48 horas
+e tendo e vista que o meu notebook é um i3 com 4gb de RAM, não foi possível entregar as telas que deveriam ser feitas
+no projeto Android com axml.
+	
+	
